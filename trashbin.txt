@@ -1,0 +1,15 @@
+if len(list(tree.subtrees(lambda subtree: subtree.label() == "NP"))) == 1:
+        for subtree in tree.subtrees(lambda subtree: subtree.label() == "NP"):
+            word_list = subtree.leaves()
+            print(" ".join(word_list))
+            return subtree
+    np_chunks = []
+    
+    # go over every subtree in the tree whose label is "NP"
+    for subtree in tree.subtrees(lambda subtree: subtree.label() == "NP"):
+        chunks = np_chunk(subtree)
+        np_chunks.append(chunks)
+        # keep checking if that subtree has more subtress of type NP
+        
+
+    return np_chunks
